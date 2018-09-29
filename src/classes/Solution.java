@@ -30,7 +30,7 @@ public class Solution {
         if(isDateTime(created)){
             this.created = created;
         }else{
-            System.err.println("Niewłaściwy format czasu, skożystaj z metody toDateTime");
+            System.err.println("Niewłaściwy format czasu, możesz skożystać z metody toDateTime");
             return null;
         }
         return this;
@@ -39,7 +39,7 @@ public class Solution {
         if(isDateTime(updated)){
             this.updated = updated;
         }else{
-            System.err.println("Niewłaściwy format czasu, skożystaj z metody toDateTime");
+            System.err.println("Niewłaściwy format czasu, możesz skożystać z metody toDateTime");
             return null;
         }
         return this;
@@ -83,6 +83,7 @@ public class Solution {
     }
 
     public static String toDateTime(int YY, int MM, int DD, int hh, int mm, int ss){
+//        todo: czy dziala?
         String date = "";
 
         if(YY < 1000) date += "0";
@@ -120,7 +121,7 @@ public class Solution {
     }
     public static boolean isDateTime(String date){
 //        'YYYY-MM-DD hh:mm:ss'
-
+//        todo: czy dziala?
         boolean yes = true;
 
         int[] digitIndex = {0,1,2,3,5,6,8,9,11,12,14,15,17,18};
