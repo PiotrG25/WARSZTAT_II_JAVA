@@ -30,6 +30,7 @@ public class Solution {
         if(isDateTime(created)){
             this.created = created;
         }else{
+            System.err.println("Niewłaściwy format czasu, skożystaj z metody toDateTime");
             return null;
         }
         return this;
@@ -38,6 +39,7 @@ public class Solution {
         if(isDateTime(updated)){
             this.updated = updated;
         }else{
+            System.err.println("Niewłaściwy format czasu, skożystaj z metody toDateTime");
             return null;
         }
         return this;
