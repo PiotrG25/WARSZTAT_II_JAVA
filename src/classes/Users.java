@@ -1,7 +1,10 @@
 package classes;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+
 public class Users {
-    private long id;
+    private int id;
     private String username;
     private String email;
     private String password;
@@ -13,15 +16,36 @@ public class Users {
         this.setPassword(password);
     }
 
-    public void saveToDB(){
+    public void saveToDB(Connection conn){
         //todo: czy id == 0
         //todo: czy gdy id != 0 chcesz zmienic zawartosc
         //todo: czy wszystkie atrybuty sa wypelnione
         //todo: czy nie ma obiektu juz w taleli
-        //todo: czy zmienic istniejacy obiekt
+        //todo: ewentualnie zmienic istniejacy obiekt
         //todo: czy prepare statement zwraca jakies wyjatki
         //todo: pobrac id z bazy i przypisac do obiektu
         //todo:
+    }
+    public static Users loadUserById(Connection conn, long id)throws SQLException {
+//        todo: rowniez wyszukiwac po emailu
+//        todo: test: czy metoda nie zwrocila nulla
+//        todo: czy obiekt ma szystkie dane takie same jak w recordzie
+//        todo:
+        return null;
+    }
+    public static Users[] loadAllUsers(Connection conn){
+//        todo:
+//        todo: test: czy ne zwraca nulla
+//        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
+//        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
+//        todo:
+        return null;
+    }
+    public void delete(Connection conn){
+//        todo: usunac obiekt ktory jest w bazie danych(id != 0)
+//        todo: jezeli go tam nie ma nic nie robid
+//        todo: gdy usuniemy obiekt zmieniamy jego id na 0
+//        todo:
     }
 
     public Users setUserName(String username){
@@ -49,7 +73,7 @@ public class Users {
         return this;
     }
 
-    public long getId(){
+    public int getId(){
         return id;
     }
     public String getUsername(){
