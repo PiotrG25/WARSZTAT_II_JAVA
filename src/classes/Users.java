@@ -47,6 +47,11 @@ public class Users {
 //        todo: gdy usuniemy obiekt zmieniamy jego id na 0
 //        todo:
     }
+    public static Users[] loadAllByGroupId(Connection conn, int id){
+//        todo: pobranie wszystkich uzytkownikow z grupy
+//        todo:
+        return null;
+    }
 
     public Users setUserName(String username){
         this.username = username;

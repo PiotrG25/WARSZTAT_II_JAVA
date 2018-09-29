@@ -47,6 +47,16 @@ public class Solution {
 //        todo: gdy usuniemy obiekt zmieniamy jego id na 0
 //        todo:
     }
+    public static Solution loadAllByUserId(Connection conn, int id){
+//        todo: pobranie wszystkich rozwiazan uzytkownika
+//        todo:
+        return null;
+    }
+    public static Solution[] loadAllByExercise(Connection conn, int id){
+//        todo: pobranie wszystkich rozwiazan danego zadania
+//        todo:
+        return null;
+    }
 
     public Solution setCreated(String created){
         if(isDateTime(created)){
