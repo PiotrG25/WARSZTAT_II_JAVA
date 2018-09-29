@@ -81,18 +81,37 @@ public class Solution {
     public static String toDateTime(int YY, int MM, int DD, int hh, int mm, int ss){
         String date = "";
 
+        if(YY < 1000) date += "0";
+        if(YY < 100) date += "0";
+        if(YY < 10) date += "0";
+
+        date += YY;
+        date += "-";
+
+        if(MM < 10) date += "0";
+
+        date += MM;
+        date += "-";
+
+        if(DD < 10) date += "0";
+
+        date += DD;
+        date += " ";
+
+        if(hh < 10) date += "0";
+
+        date += hh;
+        date += ":";
+
+        if(mm < 10) date += "0";
+
+        date += mm;
+        date += ":";
+
+        if(ss < 10) date += "0";
+
+        date += ss;
+
         return date;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
