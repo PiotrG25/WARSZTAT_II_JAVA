@@ -1,12 +1,98 @@
 package classes;
 
-import java.sql.Date;
-
 public class Solution {
     private int id;
-//    private DATETIME created;
-//    private DATETIME updated;
+    private String created;
+    private String updated;
     private String description;
     private int exercise_id;
     private long users_id;
+
+    public Solution(String created, String updated, String description, int exercise_id, long users_id){
+        setCreated(created);
+        setUpdated(updated);
+        this.description = description;
+        setExercise_id(exercise_id);
+        setUsers_is(users_id);
+    }
+
+    public void saveToDB(){
+        //todo: czy id == 0
+        //todo: czy gdy id != 0 chcesz zmienic zawartosc
+        //todo: czy wszystkie atrybuty sa wypelnione
+        //todo: czy nie ma obiektu juz w taleli
+        //todo: czy zmienic istniejacy obiekt
+        //todo: czy prepare statement zwraca jakies wyjatki
+        //todo:
+    }
+
+    public Solution setCreated(String created){
+//        todo: czy jest to odpowiedni format datu
+//        todo: odwolac do metody tworzacej z czesci
+//        todo:
+        this.created = created;
+        return this;
+    }
+    public Solution setUpdated(String updated){
+//        todo: czy jest to odpowiedni format datu
+//        todo: odwolac do metody tworzacej z czesci
+//        todo:
+        this.updated = updated;
+        return this;
+    }
+    public Solution setDescription(String description){
+        this.description = description;
+        return this;
+    }
+    public Solution setExercise_id(int exercise_id){
+//        todo: czy istnieje takie id
+//        todo: takie zadanie
+//        todo:
+        this.exercise_id = exercise_id;
+        return this;
+    }
+    public Solution setUsers_is(long users_id){
+//        todo: czy istnieje takie id
+//        todo: taki uzytkownik
+//        todo:
+        this.users_id = users_id;
+        return this;
+    }
+
+    public int getId(){
+        return id;
+    }
+    public String getCreated(){
+        return created;
+    }
+    public String getUpdated(){
+        return updated;
+    }
+    public String getDescription(){
+        return description;
+    }
+    public int getExercise_id(){
+        return exercise_id;
+    }
+    public long getUsers_id(){
+        return users_id;
+    }
+
+    public static String toDateTime(int YY, int MM, int DD, int hh, int mm, int ss){
+        String date = "";
+
+        return date;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
