@@ -114,4 +114,33 @@ public class Solution {
 
         return date;
     }
+    public static boolean isDateTime(String date){
+//        'YYYY-MM-DD hh:mm:ss'
+
+        boolean yes = true;
+
+        int[] digitIndex = {0,1,2,3,5,6,8,9,11,12,14,15,17,18};
+        int[] minusIndex = {4,7};
+        int[] pointsIndex = {13,16};
+        int spaceIndex = 10;
+
+        if(date.length() > 19) yes = false;
+
+        for(int i : digitIndex){
+            if(!Character.isDigit(date.charAt(i)))
+                yes = false;
+        }
+
+        for(int i : minusIndex){
+            if(date.charAt(i) != '-') yes = false;
+        }
+
+        for(int i : pointsIndex){
+            if(date.charAt(i) != ':') yes = false;
+        }
+
+        if(date.charAt(spaceIndex) != ' ') yes = false;
+
+        return yes;
+    }
 }
