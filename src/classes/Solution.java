@@ -27,17 +27,19 @@ public class Solution {
     }
 
     public Solution setCreated(String created){
-//        todo: czy jest to odpowiedni format datu
-//        todo: odwolac do metody tworzacej z czesci
-//        todo:
-        this.created = created;
+        if(isDateTime(created)){
+            this.created = created;
+        }else{
+            return null;
+        }
         return this;
     }
     public Solution setUpdated(String updated){
-//        todo: czy jest to odpowiedni format datu
-//        todo: odwolac do metody tworzacej z czesci
-//        todo:
-        this.updated = updated;
+        if(isDateTime(updated)){
+            this.updated = updated;
+        }else{
+            return null;
+        }
         return this;
     }
     public Solution setDescription(String description){
