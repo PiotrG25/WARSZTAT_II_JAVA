@@ -16,24 +16,31 @@ public class Users {
         this.setPassword(password);
     }
 
-    public void saveToDB(Connection conn){
-        //todo: czy id == 0
-        //todo: czy gdy id != 0 chcesz zmienic zawartosc
-        //todo: czy wszystkie atrybuty sa wypelnione
-        //todo: czy nie ma obiektu juz w taleli
-        //todo: ewentualnie zmienic istniejacy obiekt
-        //todo: czy prepare statement zwraca jakies wyjatki
-        //todo: pobrac id z bazy i przypisac do obiektu
-        //todo:
+    public void saveToDB(Connection conn) throws SQLException {
+        //todo: czy jest wyjatek zwiazany z email UNIQUEness
+        //todo: try-catch przywysylaniu do bazy zeby
+        //todo: zmienil setterem maila bo pewnie sie powtarza
+        if(id == 0){
+            //todo: zapisz do bazy
+            //todo: czy wszystkie atrybuty sa wypelnione
+
+            //todo: czy istnieje taka grupa user_group
+        }else{
+            //todo: zmien dane w bazie danych
+            //todo: czy wszystkie atrybuty sa wypelnione
+
+            //todo: pobrac id z bazy i przypisac do obiektu
+            //todo: czy istnieje taka grupa user_group
+        }
     }
-    public static Users loadUserById(Connection conn, long id)throws SQLException {
+    public static Users loadUserById(Connection conn, long id) throws SQLException {
 //        todo: rowniez wyszukiwac po emailu
 //        todo: test: czy metoda nie zwrocila nulla
 //        todo: czy obiekt ma szystkie dane takie same jak w recordzie
 //        todo:
         return null;
     }
-    public static Users[] loadAllUsers(Connection conn){
+    public static Users[] loadAllUsers(Connection conn) throws SQLException {
 //        todo:
 //        todo: test: czy ne zwraca nulla
 //        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
@@ -41,13 +48,13 @@ public class Users {
 //        todo:
         return null;
     }
-    public void delete(Connection conn){
+    public void delete(Connection conn) throws SQLException{
 //        todo: usunac obiekt ktory jest w bazie danych(id != 0)
 //        todo: jezeli go tam nie ma nic nie robid
 //        todo: gdy usuniemy obiekt zmieniamy jego id na 0
 //        todo:
     }
-    public static Users[] loadAllByGroupId(Connection conn, int id){
+    public static Users[] loadAllByGroupId(Connection conn, int id) throws SQLException {
 //        todo: pobranie wszystkich uzytkownikow z grupy
 //        todo:
         return null;
@@ -59,10 +66,6 @@ public class Users {
     }
     public Users setEmail(String email){
         this.email = email;
-//        todo: czy jest wyjatek zwiazany z email UNIQUEness
-//        todo: try-catch przywysylaniu do bazy zeby
-//        todo: zmienil setterem maila bo pewnie sie powtarza
-//        todo:
         return this;
     }
     public Users setPassword(String password){
@@ -73,8 +76,6 @@ public class Users {
     }
     public Users setUser_group(int user_group){
         this.user_group = user_group;
-//        todo: czy istnieje taka grupa
-//        todo:
         return this;
     }
 
