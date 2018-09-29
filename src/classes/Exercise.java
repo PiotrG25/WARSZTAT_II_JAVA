@@ -17,6 +17,7 @@ public class Exercise {
         //todo: czy nie ma obiektu juz w taleli
         //todo: czy zmienic istniejacy obiekt
         //todo: czy prepare statement zwraca jakies wyjatki
+        //todo: pobrac id z bazy i przypisac do obiektu
         //todo:
     }
 
