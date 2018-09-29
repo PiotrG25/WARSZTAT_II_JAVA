@@ -15,6 +15,7 @@ public class Users {
 
     public void saveToDB(){
         //todo: czy id == 0
+        //todo: czy gdy id != 0 chcesz zmienic zawartosc
         //todo: czy wszystkie atrybuty sa wypelnione
         //todo: czy nie ma obiektu juz w taleli
         //todo: czy zmienic istniejacy obiekt
