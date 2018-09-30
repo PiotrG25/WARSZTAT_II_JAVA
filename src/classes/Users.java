@@ -148,6 +148,7 @@ public class Users {
         if(u.length == 0){
             return null;
         }else{
+            System.err.println("Brak uzytkownikow");
             return u;
         }
     }
