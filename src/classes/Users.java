@@ -105,6 +105,7 @@ public class Users {
             return u;
         }
         rs.close();
+        System.err.println("Brak urzytkownika o takim id");
         return null;
     }
     public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
@@ -124,6 +125,7 @@ public class Users {
             return u;
         }
         rs.close();
+        System.err.println("Brak urzytkownika o takim emailu");
         return null;
     }
     public static Users[] loadAllUsers(Connection conn) throws SQLException {
