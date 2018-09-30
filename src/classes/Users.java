@@ -1,9 +1,6 @@
 package classes;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Users {
     private int id;
@@ -19,34 +16,72 @@ public class Users {
         this.user_group_id = user_group_id;
     }
 
-    public void saveToDB(Connection conn) throws SQLException {
-        //todo: czy jest wyjatek zwiazany z email UNIQUEness
-        //todo: zmienil setterem maila bo pewnie sie powtarza
+    public Object saveToDB(Connection conn) throws SQLException {
+        if(!this.isAllSet()){
+            System.err.println("Brakuje kilku argumentów");
+            return null;
+        }
+        {
+            Statement stm = conn.createStatement();
+            //check user_group_id existance
+            String check = "SELECT id FROM user_group;";
+            ResultSet rs = stm.executeQuery(check);
+            boolean yes = false;
+            while(rs.next()){
+                if(rs.getInt("id") == user_group_id){
+                    yes = true;
+                    break;
+            }}
+            rs.close();
+            if(!yes){
+                System.err.println("Nie ma grupy o takim id");
+                return null;
+            }
+            //check email Uniquness
+            check = "SELECT email, id FROM users;";
+            rs = stm.executeQuery(check);
+            yes = true;
+            while(rs.next()){
+                if(rs.getString("email").equals(email)){
+                    yes = false;
+                    if(rs.getInt("id") == id){
+                        yes = true;
+                    }
+                    break;
+            }}
+            rs.close();
+            if(!yes){
+                System.err.println("Taki email już istnieje");
+                return null;
+            }
+        }
+
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
             PreparedStatement pstm = conn.prepareStatement(insert);
-            if(this.allSet()){
-                pstm.setString(1, username);
-                pstm.setString(3, email);
-                pstm.setString(2, password);
-                pstm.setInt(4, user_group_id);
-            }else{
-                System.err.println("Brakuje kilku argumentów");
-                return;
-            }
-            //todo: ogarnac to zwracanie ID po exequtiecie
-//            ResultSet rs = pstm.executeUpdate();
-            //todo: zapisz do bazy
-            //todo: czy wszystkie atrybuty sa wypelnione
 
-            //todo: czy istnieje takie id w user_group user_group_id
+            pstm.setString(1, username);
+            pstm.setString(2, email);
+            pstm.setString(3, password);
+            pstm.setInt(4, user_group_id);
+
+            pstm.executeUpdate();
+            ResultSet rs = pstm.getGeneratedKeys();
+            this.id = rs.getInt("id");
+
+            rs.close();
         }else{
-            //todo: zmien dane w bazie danych
-            //todo: czy wszystkie atrybuty sa wypelnione
+            String update = "UPDATE users SET username = ?, email = ?, password = ?, user_group_id = ?;";
+            PreparedStatement pstm2 = conn.prepareStatement(update);
 
-            //todo: pobrac id z bazy i przypisac do obiektu
-            //todo: czy istnieje taka grupa user_group
+            pstm2.setString(1, username);
+            pstm2.setString(2, email);
+            pstm2.setString(3, password);
+            pstm2.setInt(4, user_group_id);
+
+            pstm2.executeUpdate();
         }
+        return 0;
     }
     public static Users loadUserById(Connection conn, long id) throws SQLException {
 //        todo: rowniez wyszukiwac po emailu
@@ -84,9 +119,9 @@ public class Users {
         return this;
     }
     public Users setPassword(String password){
-//        todo: zahaszowac haslo
-//        todo:
-        this.password = "";
+        String hashed;
+        hashed = classes.BCrypt.hashpw(password, classes.BCrypt.gensalt());
+        this.password = hashed;
         return this;
     }
     public Users setUser_group_id(int user_group_id){
@@ -110,7 +145,7 @@ public class Users {
         return user_group_id;
     }
 
-    private boolean allSet(){
+    private boolean isAllSet(){
         boolean yes = true;
         if(this.username == null) yes = false;
         if(this.email == null) yes = false;
