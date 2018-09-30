@@ -1,6 +1,7 @@
 package classes;
 
 import java.sql.*;
+import java.util.Arrays;
 
 public class Users {
     private int id;
@@ -128,13 +129,27 @@ public class Users {
         System.err.println("Brak urzytkownika o takim emailu");
         return null;
     }
-    public static Users[] loadAllUsers(Connection conn) throws SQLException {
-//        todo:
 //        todo: test: czy ne zwraca nulla
 //        todo: czy dlugosc tablicy jest taka sama jak ilosc rekordow w tablicy
 //        todo: czy argumenty sie zgadzaja(sprawdzic przynajmniej jeden)
 //        todo:
-        return null;
+    public static Users[] loadAllUsers(Connection conn) throws SQLException {
+        String selectIds = "SELECT id FROM users";
+        ResultSet rs = (conn.createStatement()).executeQuery(selectIds);
+        Users[] u = new Users[1];
+
+        while(rs.next()){
+            u[u.length - 1] = loadUserById(conn, rs.getInt("id"));
+            u = Arrays.copyOf(u, u.length + 1);
+        }
+        rs.close();
+        u = Arrays.copyOf(u, u.length - 1);
+
+        if(u.length == 0){
+            return null;
+        }else{
+            return u;
+        }
     }
     public void delete(Connection conn) throws SQLException{
 //        todo: usunac obiekt ktory jest w bazie danych(id != 0)
