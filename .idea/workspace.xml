@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1408c533-c08f-4c42-a7f8-2b3f48a5a333" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Exercise.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Exercise.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Solution.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Solution.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/User_group.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/User_group.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Users.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/WARSZTAT_II_JAVA/classes/Users.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/classes/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/classes/Users.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -40,12 +35,12 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="7735" />
+          <entry key="java" value="8236" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="7735" />
+          <entry key="JAVA" value="8236" />
         </counts>
       </usages-collector>
     </session>
@@ -91,8 +86,20 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="34">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
+            <state relative-caret-position="477">
+              <caret line="124" selection-start-line="124" selection-end-line="124" />
+              <folding>
+                <element signature="e#4365#4366#0" expanded="true" />
+                <element signature="e#4390#4391#0" expanded="true" />
+                <element signature="e#4423#4424#0" expanded="true" />
+                <element signature="e#4454#4455#0" expanded="true" />
+                <element signature="e#4484#4485#0" expanded="true" />
+                <element signature="e#4512#4513#0" expanded="true" />
+                <element signature="e#4545#4546#0" expanded="true" />
+                <element signature="e#4576#4577#0" expanded="true" />
+                <element signature="e#4611#4612#0" expanded="true" />
+                <element signature="e#4647#4648#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -168,7 +175,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538309319253" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538310770829" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -230,12 +237,12 @@
       <workItem from="1538220680452" duration="95000" />
       <workItem from="1538220839925" duration="5386000" />
       <workItem from="1538247234706" duration="8444000" />
-      <workItem from="1538306922503" duration="3651000" />
+      <workItem from="1538306922503" duration="4499000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="21538000" />
+    <option name="totallyTimeSpent" value="22386000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -311,8 +318,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/classes/Users.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="477">
+          <caret line="124" selection-start-line="124" selection-end-line="124" />
+          <folding>
+            <element signature="e#4365#4366#0" expanded="true" />
+            <element signature="e#4390#4391#0" expanded="true" />
+            <element signature="e#4423#4424#0" expanded="true" />
+            <element signature="e#4454#4455#0" expanded="true" />
+            <element signature="e#4484#4485#0" expanded="true" />
+            <element signature="e#4512#4513#0" expanded="true" />
+            <element signature="e#4545#4546#0" expanded="true" />
+            <element signature="e#4576#4577#0" expanded="true" />
+            <element signature="e#4611#4612#0" expanded="true" />
+            <element signature="e#4647#4648#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

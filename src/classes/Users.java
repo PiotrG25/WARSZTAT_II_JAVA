@@ -15,6 +15,7 @@ public class Users {
         this.setPassword(password);
         this.user_group_id = user_group_id;
     }
+    public Users(){};
 
     public Object saveToDB(Connection conn) throws SQLException {
         if(!this.isAllSet()){
@@ -83,11 +84,46 @@ public class Users {
         }
         return 0;
     }
-    public static Users loadUserById(Connection conn, long id) throws SQLException {
-//        todo: rowniez wyszukiwac po emailu
 //        todo: test: czy metoda nie zwrocila nulla
 //        todo: czy obiekt ma szystkie dane takie same jak w recordzie
 //        todo:
+    public static Users loadUserById(Connection conn, int id) throws SQLException {
+        String selectById = "SELECT * FROM users WHERE id = ?";
+        PreparedStatement pstm = conn.prepareStatement(selectById);
+        pstm.setInt(1, id);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            String name = rs.getString("username");
+            String email = rs.getString("email");
+            String password = rs.getString("password");
+            int user_group_id = rs.getInt("user_gorup_id");
+
+            Users u = new Users(name, email, password, user_group_id);
+            u.id = rs.getInt("id");
+            rs.close();
+            return u;
+        }
+        rs.close();
+        return null;
+    }
+    public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
+        String selectById = "SELECT * FROM users WHERE email = ?";
+        PreparedStatement pstm = conn.prepareStatement(selectById);
+        pstm.setString(1, email);
+        ResultSet rs = pstm.executeQuery();
+
+        if(rs.next()){
+            String name = rs.getString("username");
+            String password = rs.getString("password");
+            int user_group_id = rs.getInt("user_gorup_id");
+
+            Users u = new Users(name, email, password, user_group_id);
+            u.id = rs.getInt("id");
+            rs.close();
+            return u;
+        }
+        rs.close();
         return null;
     }
     public static Users[] loadAllUsers(Connection conn) throws SQLException {
