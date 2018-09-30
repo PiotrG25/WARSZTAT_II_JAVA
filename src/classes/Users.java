@@ -146,9 +146,9 @@ public class Users {
         u = Arrays.copyOf(u, u.length - 1);
 
         if(u.length == 0){
+            System.err.println("Brak uzytkownikow");
             return null;
         }else{
-            System.err.println("Brak uzytkownikow");
             return u;
         }
     }
