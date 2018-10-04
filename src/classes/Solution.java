@@ -2,6 +2,8 @@ package classes;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Solution {
     private int id;
@@ -154,8 +156,19 @@ public class Solution {
     }
     public static boolean isDateTime(String date){
 //        'YYYY-MM-DD hh:mm:ss'
+//        Metoda sprawdza poprawnosc formatu a nie daty
 //        todo: czy dziala?
-        boolean yes = true;
+
+        Pattern pattern = Pattern.compile(
+        "[0-9]{4}-[0-9]{2}-[0-9]{2}\\s[0-9]{2}\\:[0-9]{2}:[0-9]{2}");
+
+        Matcher matcher = pattern.matcher(date);
+
+        if(matcher.matches()){
+            return true;
+        }
+        return false;
+/*        boolean yes = true;
 
         int[] digitIndex = {0,1,2,3,5,6,8,9,11,12,14,15,17,18};
         int[] minusIndex = {4,7};
@@ -179,6 +192,6 @@ public class Solution {
 
         if(date.charAt(spaceIndex) != ' ') yes = false;
 
-        return yes;
+        return yes;*/
     }
 }

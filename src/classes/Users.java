@@ -16,13 +16,14 @@ public class Users {
         this.setPassword(password);
         this.user_group_id = user_group_id;
     }
-    public Users(){};
+    public Users(){}
 
     public Object saveToDB(Connection conn) throws SQLException {
         if(!this.isAllSet()){
             System.err.println("Brakuje kilku argumentów");
             return null;
         }
+        //Blok kodu walidujacy dane
         {
             Statement stm = conn.createStatement();
             //check user_group_id existance
@@ -56,7 +57,7 @@ public class Users {
                 System.err.println("Taki email już istnieje");
                 return null;
             }
-        }
+        }//Koniec bloku walidujacego dane
 
         if(id == 0){
             String insert = "INSERT INTO users (username, email, password, user_group_id) VALUES (?, ?, ?, ?);";
@@ -110,8 +111,8 @@ public class Users {
         return null;
     }
     public static Users loadUserByEmail(Connection conn, String email) throws SQLException {
-        String selectById = "SELECT * FROM users WHERE email = ?";
-        PreparedStatement pstm = conn.prepareStatement(selectById);
+        String selectByEmail = "SELECT * FROM users WHERE email = ?";
+        PreparedStatement pstm = conn.prepareStatement(selectByEmail);
         pstm.setString(1, email);
         ResultSet rs = pstm.executeQuery();
 
